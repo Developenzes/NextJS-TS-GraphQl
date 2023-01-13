@@ -1,0 +1,31 @@
+query launchDetails($id: ID!) {
+	launch(id: $id) {
+    mission_name
+    launch_date_local
+    launch_site {
+      site_name_long
+    }
+		details
+    id
+    rocket {
+      rocket_name
+      rocket_type
+      rocket {
+        diameter {
+          meters
+        }
+        description
+        height {
+          meters
+        }
+      }
+    }
+    links {
+      article_link
+      video_link
+      wikipedia
+      flickr_images
+      mission_patch
+    }
+	}
+}
