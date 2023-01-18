@@ -4,14 +4,16 @@ import { Launch } from "../generated/graphql";
 
 type appContextType = {
     star: boolean;
-    favoriteLaunch: [];
-    favorite: boolean;
+    favoriteLaunch: Launch[];
+    //getLaunchFromFavorite(): Launch| undefined;
+    //onStarButton(): Launch
 };
 
 const appContextDefaultValues: appContextType = {
     star: false,
     favoriteLaunch: [],
-    favorite: false,
+    //getLaunchFromFavorite(): Launch| undefined,
+    //onStarButton(): void   
 };
 
 export const AppContext = createContext<appContextType>(appContextDefaultValues);
@@ -39,7 +41,7 @@ export function AppProvider({children}: Props) {
     }, [favoriteLaunch]);
 
     const handleStarButton = (newLaunch: Launch) => {
-        const existingLaunch = favoriteLaunch.find(fav => fav.id === newLaunch.id);
+        const existingLaunch = favoriteLaunch.find(fav => fav?.id === newLaunch.id);
         
         if(existingLaunch) {
             const updatedLaunch = favoriteLaunch.filter(fav=> fav.id !== newLaunch.id)

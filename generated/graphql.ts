@@ -245,6 +245,7 @@ export type Launch = {
   telemetry?: Maybe<LaunchTelemetry>;
   tentative_max_precision?: Maybe<Scalars['String']>;
   upcoming?: Maybe<Scalars['Boolean']>;
+  favorite?: Maybe<Scalars['Boolean']>
 };
 
 export type LaunchFind = {

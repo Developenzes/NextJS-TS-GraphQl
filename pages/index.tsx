@@ -10,13 +10,11 @@ export default function HomePage() {
   }});
 
   const {data, fetching, error} = result;
-    
+
   if(fetching) return <div>Loading...</div>
   if(error) return <div>{error.message}</div>
   if(!data) return <div>No data</div>
 
-  console.log(data)
- 
   return (
     <>
       <Head>
@@ -26,7 +24,7 @@ export default function HomePage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div >        
-        <PageGrid data={data.launchesPast} />
+        <PageGrid data={data.launchesPast}/>
       </div>
     </>
   )

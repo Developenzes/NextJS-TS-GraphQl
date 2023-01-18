@@ -11,8 +11,6 @@ type Props = {
 export default function PageGrid({data}: Props) {
     const [searchValue, setSearchValue] = useState<string>('');
 
-    console.log(data)
-
     const filteredLaunches = data.filter((launch) =>
         launch?.mission_name?.toLowerCase().includes(searchValue.toLowerCase()),
     );
@@ -25,9 +23,9 @@ export default function PageGrid({data}: Props) {
                     onChange={(event: React.ChangeEvent<HTMLInputElement>) => setSearchValue(event.target.value)}
                 />            
                 <Grid container maxWidth="lg" spacing={{ xs: 4, md: 6 }} columns={{ xs: 4, sm: 8, md: 12 }} >           
-                    {filteredLaunches.map((launch) => (
-                        <Grid key={launch.id} item xs={4} sm={4} md={4}  >
-                            <LaunchCard launch={launch} />
+                    {filteredLaunches?.map((launch) => (
+                        <Grid key={launch?.id} item xs={4} sm={4} md={4}  >
+                            <LaunchCard launch={launch}/>
                         </Grid>
                     ))}
                 </Grid>

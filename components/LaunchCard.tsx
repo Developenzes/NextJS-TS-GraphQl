@@ -24,7 +24,7 @@ export default function LaunchCard({launch}: Props) {
             <CardMedia>
                 <div style={{ position: 'relative', width: '100%', height: '150px' }}>
                 <Image 
-                    src={launch?.links?.flickr_images.length > 0 ? launch?.links?.flickr_images[0] : launch?.links?.mission_patch} 
+                    src={launch.links?.flickr_images.length > 0 ? launch.links?.flickr_images[0] : launch.links?.mission_patch} 
                     layout="fill"
                     objectFit="cover"
                     alt="space" 
@@ -48,7 +48,7 @@ export default function LaunchCard({launch}: Props) {
             <IconButton onClick={() => {app.onStarButton(launch)}}>
                 {launchFromFavorite ? <StarIcon color="warning" /> : <StarBorderIcon />}                
             </IconButton>                          
-            <Button launch={launch} component={Link} href={`/launches/${launch.id}`} size="medium">Detail</Button>
+            <Button  component={Link} href={`/launches/${launch.id}`} size="medium">Detail</Button>
         </CardActions>
       </Card>
     );
